@@ -81,3 +81,4 @@ export M2_HOME=/home/sajith/apps/apache-maven-3.0.5
 export JBOSS4_HOME=/home/sajith/apps/JBoss_42_GA
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
+source /home/sajith/oh-my-git/prompt.sh

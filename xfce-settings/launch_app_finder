@@ -1,0 +1,11 @@
+#/bin/bash
+
+pid=`ps aux | grep xfce4-appfinder | grep -v root | grep -v grep| awk '{print $2}'`
+
+if [[ -z "$pid" ]]; then
+	echo ""
+else 
+	kill -9 $pid
+fi
+
+xfce4-appfinder

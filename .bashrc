@@ -50,7 +50,6 @@ function fcreatedb() {
     fi
 }
 
-
 function fdropdb() {
 
     if [ $# -ne 1 ]; then
@@ -67,13 +66,25 @@ function rcp() {
     popd
 }
 
+function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
 #Alias
 alias "cbld=mvn clean install -DskipTests"
 alias "bld=mvn install -DskipTests"
-alias "cst=fcreatedb paysolTest;mvn clean install -Psystemtest -f tests/systemtest/pom.xml"
-alias "st=fcreatedb paysolTest;mvn install -Psystemtest -f tests/systemtest/pom.xml"
+alias "ut=mvn -Pfast.install"
+alias "it=mvn -Pejbintegrationtests -f core/ejb/ejb-integration-test/pom.xml test"
+#alias "cst=fcreatedb paysolTest;mvn clean install -Psystemtest -f tests/systemtest/pom.xml"
+alias "st=tests/systemtest/runSystemTests.sh"
 alias "rnet=sudo systemctl restart network.service"
 alias "off=xrandr --output VGA1 --off"
+alias "gf=git fetch"
+alias ..="cd .."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."
+alias ..4="cd ../../../.."
+alias ..5="cd ../../../../.."
+alias "resetmq=sudo rabbitmqctl stop_app;sudo rabbitmqctl reset;sudo rabbitmqctl start_app"
+
 #Variables
 
 export JAVA_HOME=/home/sajith/apps/jdk1.7.0_21

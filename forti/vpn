@@ -1,0 +1,88 @@
+#/bin/bash
+function printUsage() {
+    echo "usage vpn (start|stop|status|restart)"
+}
+
+function startVpn() {
+    echo -e "\e[92mStarting VPN"
+    rm /home/sajith/apps/forticlientsslvpn/log/vpn_script.log
+    pushd /home/sajith/apps/forticlientsslvpn > /dev/null
+    (./vpn_start>log/vpn_script.log)&
+    popd > /dev/null
+    
+    while :
+    do
+        if [ -n "`grep "error" /home/sajith/apps/forticlientsslvpn/log/vpn_script.log`" ]; then
+            notify-send "Error connecting"
+            echo "error connecting"
+            break
+        elif [ -z "`grep "STATUS::Tunnel running" /home/sajith/apps/forticlientsslvpn/log/vpn_script.log`" ]; then
+            echo -n "."
+            sleep 1
+        else
+            notify-send "Vpn started"
+            echo ""
+            echo -e "\e[92mVpn started.."
+            break
+        fi
+    done
+}
+
+function stopVpn() {
+    echo -e "\e[92mStopping VPN"
+    ps -ef | grep forti | grep -v /usr/sbin/pppd| grep -v grep | cut -d' ' -f4 | while read -r pid ; do
+        if [ -n "$pid" ]; then
+            kill -2 $pid &>/dev/null
+            if [ $? -eq 0 ]; then
+                sleep 5
+            fi
+            kill -HUP $pid &>/dev/null
+        fi
+    done
+    vpnStatus
+}
+
+function vpnStatus() {
+    if [ -z "`grep "10.13.16.24"  /etc/resolv.conf`" ]; then
+        echo ""
+        echo -e "\e[91mVPN is not running.."
+    else
+        echo ""
+        echo -e  "\e[92mVPN is running.."
+    fi
+}
+
+function restartVpn() {
+    stopVpn
+    startVpn
+}
+
+
+if [ -z "$1" ]; then
+    printUsage
+elif [ "$1" == "start" ]; then
+    echo "starting vpn"
+    startVpn
+elif [ "$1" == "stop" ]; then
+    echo "stoping vpn"
+    stopVpn
+elif [ "$1" == "status" ]; then
+    vpnStatus
+elif [ "$1" == "restart" ]; then
+    restartVpn
+else
+    printUsage
+fi
+
+#rm out
+#(./xx>out)&
+#while :
+#do
+ #   if [ -z "`grep "STATUS::Tunnel running" out`" ]; then
+  #      echo -n "."
+   #     sleep 1
+   # else
+    #    notify-send "Vpn started"
+     #   break
+  #  fi
+#done

@@ -1,0 +1,17 @@
+#!/bin/bash
+password=`cat password`
+if [[ -z "$password" ]]; then 
+    echo "Password empty"
+else
+    #haveMail=`curl -su  sajith.silva@pagero.com:$password https://mail.google.com/mail/feed/atom | grep "<fullcount>0</fullcount>" | wc -l`
+    url="curl -su  sajith.silva@pagero.com:$password https://mail.google.com/mail/feed/atom"    
+    response=`$url`
+
+    if [[ `echo "$response" | grep "<TITLE>Unauthorized</TITLE>"|wc -l` -eq "1" ]]; then
+        notify-send "gmail authentication failed"
+    elif [[ `echo "$response" | grep "<fullcount>0</fullcount>" | wc -l` -eq "1" ]]; then
+        echo "no mail" 
+    else
+        notify-send "Hey! you got mail"
+    fi
+fi

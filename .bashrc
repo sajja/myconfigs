@@ -87,9 +87,9 @@ alias "resetmq=sudo rabbitmqctl stop_app;sudo rabbitmqctl reset;sudo rabbitmqctl
 
 #Variables
 
-export JAVA_HOME=/home/sajith/apps/jdk1.7.0_21
+export JAVA_HOME=/home/sajith/apps/jdk1.7.0_25/
 export M2_HOME=/home/sajith/apps/apache-maven-3.0.5
 export JBOSS4_HOME=/home/sajith/apps/JBoss_42_GA
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
-source /home/sajith/oh-my-git/prompt.sh
+source /home/sajith/scratch/oh-my-git/prompt.sh

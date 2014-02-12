@@ -61,10 +61,8 @@ function restartVpn() {
 if [ -z "$1" ]; then
     printUsage
 elif [ "$1" == "start" ]; then
-    echo "starting vpn"
     startVpn
 elif [ "$1" == "stop" ]; then
-    echo "stoping vpn"
     stopVpn
 elif [ "$1" == "status" ]; then
     vpnStatus

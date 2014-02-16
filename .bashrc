@@ -68,6 +68,18 @@ function rcp() {
 
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
+function wo {
+    if [[ -z "$WORK_DIR" ]]; then
+        echo -e "\e[2mWork dir not set"
+    else
+        if [[ ! -z "$1" ]]; then
+            cd "$WORK_DIR/$1"
+        else
+            echo -e "\e[2m Enter a work dir"
+        fi
+    fi
+}
+
 #Alias
 alias "cbld=mvn clean install -DskipTests"
 alias "bld=mvn install -DskipTests"
@@ -84,6 +96,8 @@ alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 alias "resetmq=sudo rabbitmqctl stop_app;sudo rabbitmqctl reset;sudo rabbitmqctl start_app"
+alias wget='wget -c'
+alias dualmon="xrandr --output HDMI1 --left-of VGA1"
 
 #Variables
 
@@ -91,5 +105,10 @@ export JAVA_HOME=/home/sajith/apps/jdk1.7.0_25/
 export M2_HOME=/home/sajith/apps/apache-maven-3.0.5
 export JBOSS4_HOME=/home/sajith/apps/JBoss_42_GA
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
+export WORK_DIR=/home/sajith/work
 
 source /home/sajith/scratch/oh-my-git/prompt.sh
+source /home/sajith/oh-my-git/prompt.sh
+source /home/sajith/scratch/myconfigs/bashscripts/wo_autocomplete
+
+complete -F wo_options wo

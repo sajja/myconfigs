@@ -1,0 +1,11 @@
+kp_options() {
+  local curr_arg;
+  curr_arg=${COMP_WORDS[COMP_CWORD]}
+    if [[ ! -z "$curr_arg" ]]; then
+        echo ""
+        echo  "`ps -ef | grep $curr_arg|grep -v grep`"
+        echo " "
+    fi
+#  COMPREPLY=( $(compgen -W '`ps -ef | grep $curr_arg|grep -v grep | cut -d '/' -f5`' -- $curr_arg ) );
+  COMPREPLY=$cur_arg
+}

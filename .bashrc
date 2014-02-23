@@ -80,6 +80,23 @@ function wo {
     fi
 }
 
+function kp () {
+    if [[ -z "$1" ]]; then
+        echo "usage kp <processname>"
+    else
+        kill -9 `ps -ef | grep $1 | grep -v grep | cut -d " " -f5`
+        kill -9 `ps -ef | grep $1 | grep -v grep | cut -d " " -f4`
+    fi
+}
+
+function gp () {
+    if [[ -z "$1" ]]; then
+        echo "usage gp <processname>"
+    else
+        ps -ef | grep $1| grep -v grep 
+    fi
+}
+
 #Alias
 alias "cbld=mvn clean install -DskipTests"
 alias "bld=mvn install -DskipTests"
@@ -98,6 +115,14 @@ alias ..5="cd ../../../../.."
 alias "resetmq=sudo rabbitmqctl stop_app;sudo rabbitmqctl reset;sudo rabbitmqctl start_app"
 alias wget='wget -c'
 alias dualmon="xrandr --output HDMI1 --left-of VGA1"
+alias "htop_m=htop --sort-key=PERCENT_CPU"
+alias "htop_c=htop --sort-key=PERCENT_MEM"
+alias "initdhclient=sudo pkill -HUP dhclient;sudo dhclient"
+alias "gmail=firefox www.gmail.com"
+alias "ca=firefox https://www.google.com/calendar/render?tab=mc"
+alias "cal=/usr/bin/cal -3"
+alias "df=df-h"
+alias "free=free -h"
 
 #Variables
 
@@ -108,7 +133,10 @@ export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 export WORK_DIR=/home/sajith/work
 
 source /home/sajith/scratch/oh-my-git/prompt.sh
-source /home/sajith/oh-my-git/prompt.sh
 source /home/sajith/scratch/myconfigs/bashscripts/wo_autocomplete
+source /home/sajith/scratch/myconfigs/bashscripts/kp_autocomplete
 
 complete -F wo_options wo
+complete -F kp_options kp
+
+/usr/bin/setxkbmap -option 'ctrl:nocaps'

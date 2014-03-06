@@ -80,6 +80,13 @@ function wo {
     fi
 }
 
+function update_po_db() {
+    cd /home/sajith/work/paysol/bootstrap/data/src/main/resources
+    psql -Upostgres paysol -f updatePaysol.sql
+    psql -Upostgres archive -f updateArchive.sql
+}
+
+
 function kp () {
     if [[ -z "$1" ]]; then
         echo "usage kp <processname>"
@@ -123,11 +130,14 @@ alias "ca=firefox https://www.google.com/calendar/render?tab=mc"
 alias "cal=/usr/bin/cal -3"
 alias "df=df-h"
 alias "free=free -h"
+alias "bootstrapst=mvn -f /home/sajith/work/paysol/tests/systemtest/pom.xml -DcreateSchemas=true  com.pagero.paysol.bootstrap:paysol-dbdeploy-maven-plugin:1.0:db-deploy"
+
 
 #Variables
 
 export JAVA_HOME=/home/sajith/apps/jdk1.7.0_25/
 export M2_HOME=/home/sajith/apps/apache-maven-3.0.5
+export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 export JBOSS4_HOME=/home/sajith/apps/JBoss_42_GA
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 export WORK_DIR=/home/sajith/work

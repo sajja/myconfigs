@@ -108,9 +108,8 @@ function gp () {
 alias "cbld=mvn clean install -DskipTests"
 alias "bld=mvn install -DskipTests"
 alias "ut=mvn -Pfast.install"
-alias "it=mvn -Pejbintegrationtests -f core/ejb/ejb-integration-test/pom.xml test"
-#alias "cst=fcreatedb paysolTest;mvn clean install -Psystemtest -f tests/systemtest/pom.xml"
-alias "st=tests/systemtest/runSystemTests.sh"
+alias "it=mvn -Prun-its -pl core/ejb/ejb-integration-test verify"
+alias "st=mvn -Prun-its -pl tests/systemtest verify"
 alias "rnet=sudo systemctl restart network.service"
 alias "off=xrandr --output VGA1 --off"
 alias "gf=git fetch"
@@ -128,15 +127,17 @@ alias "initdhclient=sudo pkill -HUP dhclient;sudo dhclient"
 alias "gmail=firefox www.gmail.com"
 alias "ca=firefox https://www.google.com/calendar/render?tab=mc"
 alias "cal=/usr/bin/cal -3"
-alias "df=df-h"
+alias "df=df -h"
 alias "free=free -h"
-alias "bootstrapst=mvn -f /home/sajith/work/paysol/tests/systemtest/pom.xml -DcreateSchemas=true  com.pagero.paysol.bootstrap:paysol-dbdeploy-maven-plugin:1.0:db-deploy"
+alias "bootstrapst=mvn -Prun-its -pl tests/systemtest prepare-package -o"
 
 
 #Variables
 
-export JAVA_HOME=/home/sajith/apps/jdk1.7.0_25/
-export M2_HOME=/home/sajith/apps/apache-maven-3.0.5
+#export JAVA_HOME=/home/sajith/apps/jdk1.7.0_25/
+export JAVA_HOME=/home/sajith/apps/java8
+#export M2_HOME=/home/sajith/apps/apache-maven-3.0.5
+export M2_HOME=/home/sajith/apps/apache-maven-3.2.1
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 export JBOSS4_HOME=/home/sajith/apps/JBoss_42_GA
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH

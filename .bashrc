@@ -100,8 +100,24 @@ function gp () {
     if [[ -z "$1" ]]; then
         echo "usage gp <processname>"
     else
-        ps -ef | grep $1| grep -v grep 
+        ps -ef |  grep -v grep | grep $1
     fi
+}
+
+
+function sd() {
+lastcommand=`fc -nl | grep sd | tail -n 1 | cut -d ";" -f 1`
+exitcode=$?
+while :
+do
+    notify-send "Task you submitted is completed 
+        Task name $lastcommand
+        Exit code is - `if [ $exitcode = 0 ]; then echo Success; else echo Error; fi`"
+    sleep 3
+done
+#notify-send "Task you submitted is completed 
+#Exit code is - `if [ \$? = 0 ]; then echo Success; else echo Error; fi`"
+#
 }
 
 #Alias
@@ -130,8 +146,7 @@ alias "cal=/usr/bin/cal -3"
 alias "df=df -h"
 alias "free=free -h"
 alias "bootstrapst=mvn -Prun-its -pl tests/systemtest prepare-package -o"
-
-
+alias "Eterm= Eterm --borderless --buttonbar 0 --trans --shade 0 --scrollbar false"
 #Variables
 
 #export JAVA_HOME=/home/sajith/apps/jdk1.7.0_25/

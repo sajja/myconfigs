@@ -3,9 +3,9 @@ kp_options() {
   curr_arg=${COMP_WORDS[COMP_CWORD]}
     if [[ ! -z "$curr_arg" ]]; then
         echo ""
-        echo  "`ps -ef | grep $curr_arg|grep -v grep`"
+        echo  "`ps -ef | grep -v grep |  grep --color=always $curr_arg`"
         echo " "
     fi
 #  COMPREPLY=( $(compgen -W '`ps -ef | grep $curr_arg|grep -v grep | cut -d '/' -f5`' -- $curr_arg ) );
-  COMPREPLY=$cur_arg
+  COMPREPLY=$curr_arg
 }

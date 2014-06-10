@@ -38,16 +38,16 @@ ${voffset 0}${color EAEAEA}${font GE Inspira:pixelsize=100}${time %H:%M}${font}$
 
 
 
-${font Sans:size=16}CALENDAR ${hr 1}${font}
+${color #B2B2B2}${font Sans:size=16}CALENDAR ${hr 1}${font}${color}
 
-${font Inconsolata:size=13}${offset 40}${color #999999}${execpi 60 DJS=`date +%_d`; cal -3| sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color}'"$DJS"'${color #999999}'/g}${font}${font}
+${font Inconsolata:size=13}${offset 40}${color #333333}${execpi 60 DJS=`date +%_d`; cal -3| sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color}'"$DJS"'${color #333333}'/g}${font}${font}
 #${font Inconsolata:size=13}${offset 40}${color #999999}${execpi 60 DJS=`date +%_d`; cal -3| sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color}'"$DJS"'${color #999999}'/g }${font}${font}
 
-${font Sans:size=16}${color #FFFFFF}AGENDA${hr 1}${color}${font}
-${font Inconsolata:size=13}${offset 40}${execpi 1 task agenda}
+${color #B2B2B2}${font Sans:size=16}AGENDA${hr 1}${font}${color}
+${font Inconsolata:size=13}${voffset 10}${execpi 1 task agenda --type=conky}${voffset}
 
-${font Sans:size=16}${color #FFFFFF}TODO's${hr 1}${color}${font}
+${color #B2B2B2}${font Sans:size=16}TODO's${hr 1}${font}${color}
 ${font Sans:size=14}
-${font Inconsolata:size=13}${offset 40}${execpi 1 task todo}
+${font Inconsolata:size=13}${execpi 1 task todo}
 ${font}
 

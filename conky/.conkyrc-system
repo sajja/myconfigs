@@ -63,4 +63,4 @@ RAM:  ${color e0e0e0}$mem / $memmax ($memperc%)${color} ${membar 4, 90}     ${co
 Wired IP1: ${color e0e0e0}${addr p4p1}${color} Wired IP2: ${color e0e0e0}${addr p4p2}${color} Wireless IP: ${color e0e0e0}${addr wlp2s0}${color} Vpn IP: ${color e0e0e0}${addr ppp0}${color} 
     Net Wired1: ${color e0e0e0}${font}${downspeed p4p1} Kb/s ${color} ${totaldown p4p1} Downloaded${color} | Net Wired2: ${color e0e0e0}${font}${downspeed p4p2} Kb/s ${color} ${totaldown p4p2} Downloaded${color} | Net Wireless: ${color e0e0e0}${font}${downspeed wlp2s0} Kb/s ${color} ${totaldown wlp2s0} Downloaded${color} | Net VPN: ${color e0e0e0}${font}${downspeed ppp0} Kb/s ${color} ${totaldown ppp0} Downloaded${color} 
 AC:${color e0e0e0} ${acpiacadapter } ${color}Battery: ${color e0e0e0}${battery}${color} Charge/Discharge time: ${color e0e0e0}${battery_time}${color} 
-${hr 1}
+#${hr 1}

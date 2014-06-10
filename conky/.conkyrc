@@ -12,7 +12,7 @@ own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
 text_buffer_size 2048
 minimum_size 220 5
-maximum_width 420
+maximum_width 1000
 draw_shades yes
 draw_outline no
 draw_borders no
@@ -20,7 +20,7 @@ draw_graph_borders yes
 default_color white
 default_shade_color black
 default_outline_color green
-alignment top_right
+alignment top_left
 gap_x 12
 gap_y 35
 no_buffers yes
@@ -28,6 +28,8 @@ uppercase no
 cpu_avg_samples 2
 override_utf8_locale no
 uppercase no # set to yes if you want all text to be in uppercase
+
+
 
 TEXT
 ${font Sans:size=12}${color FF9933}SYSTEM ${hr 1}${color}${font}

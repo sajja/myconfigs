@@ -120,6 +120,21 @@ done
 #
 }
 
+
+function java7() {
+    echo "Setting java to java7 JAVA_HOME=/home/sajith/apps/jdk1.7.0_25/"
+    export JAVA_HOME=/home/sajith/apps/jdk1.7.0_25/
+    export PATH=$JAVA_HOME/bin:$PATH
+    java -version
+}
+
+function java8() {
+    echo "Setting java to java8 /home/sajith/apps/java8"
+    export JAVA_HOME=/home/sajith/apps/java8
+    export PATH=$JAVA_HOME/bin:$PATH
+    java -version
+}
+
 #Alias
 alias "cbld=mvn clean install -DskipTests"
 alias "bld=mvn install -DskipTests"

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ ! -d "~/.task/import" ]; then
+    cd ~
+    mkdir -p .task/import
+fi
+
+gcalcli --nocolor --calendar=sajith.silva@pagero.com agenda | tee /home/sajith/.task/import/google_agenda

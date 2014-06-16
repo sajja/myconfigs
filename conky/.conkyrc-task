@@ -34,7 +34,7 @@ gap_y 0
 
 
 TEXT
-${voffset 0}${color EAEAEA}${font GE Inspira:pixelsize=100}${time %H:%M}${font}${voffset -70}${offset 10}${color FFA300}${font GE Inspira:pixelsize=60}${time %d} ${voffset -15}${color EAEAEA}${voffset -11}${font GE Inspira:pixelsize=28}${time  %B} ${time %Y} ${font}${voffset}${voffset 14}${font GE Inspira:pixelsize=28}${offset -124}${time %A}${font}
+${voffset 0}${color EAEAEA}${font GE Inspira:pixelsize=100}${time %H:%M}${font}${voffset -70}${offset 10}${color FFA300}${font GE Inspira:pixelsize=60}${time %d} ${voffset -15}${color EAEAEA}${voffset -11}${font GE Inspira:pixelsize=28}${time  %B} ${time %Y}${font}${execpi 1 /home/sajith/scratch/myconfigs/conky/gmail_check} ${voffset}${voffset 14}${font GE Inspira:pixelsize=28}${offset -320}${time %A}${font}
 
 
 

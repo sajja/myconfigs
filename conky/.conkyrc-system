@@ -1,16 +1,6 @@
 #avoid flicker
-#double_buffer yes
-#background no
-#own_window  no
-#total_run_times 0
-#draw_borders no
-#draw_shades no
 gap_x 0
 gap_y 0
-#alignment bottom_left
-#update_interval 2
-#colour
-
 default_color  8f8f8f
 own_window_colour 151515
 draw_outline no
@@ -19,9 +9,6 @@ use_xft yes
 xftfont bauhaus:pixelsize=13
 
 #to prevent window from moving
-#use_spacer no
-#minimum_size 700 15
-
 background no
 own_window yes
 own_window_type normal
@@ -42,7 +29,7 @@ uppercase no # set to yes if you want all text to be in uppercase
 stippled_borders 0
 
 # border width
-border_width 10
+border_width 0
 # Default colors and also border colors, grey90 == #e5e5e5
 #default_color grey90
 #color0 4682b4 # 'header' color
@@ -52,7 +39,7 @@ alignment bottom_left
 
 # Gap between borders of screen and text
 gap_x 20
-gap_y 30
+gap_y 0
 
 
 TEXT
@@ -60,7 +47,7 @@ DISTRO :${color 333300} ${exec cat /etc/redhat-release}${color} | Uptime: ${colo
     CPU : CPU1 (${cpu cpu1}%)  ${cpubar cpu1 4, 90}     CPU2 (${cpu cpu2}%)    ${cpubar cpu2 4, 90}    CPU3 (${cpu cpu3}%) ${cpubar cpu3 4, 90}    CPU4 (${cpu cpu4}%) ${cpubar cpu4 4, 90}
 RAM:  ${color e0e0e0}$mem / $memmax ($memperc%)${color} ${membar 4, 90}     ${color}SWAP: ${color e0e0e0}${font}$swap / $swapmax ($swapperc%)${color} ${swapbar 4, 90} 
     Root: ${color e0e0e0}${font}${fs_free /} / ${fs_size /} ${color} Home: ${color e0e0e0}${font}${fs_free /home}/${fs_size /home} ${color}Tmp: ${color e0e0e0}${font}${fs_free /tmp}/${fs_size /tmp} ${color} |  DIO: ${color e0e0e0}${font}${diskio}${color}
-Wired IP1: ${color e0e0e0}${addr p4p1}${color} Wired IP2: ${color e0e0e0}${addr p4p2}${color} Wireless IP: ${color e0e0e0}${addr wlp2s0}${color} Vpn IP: ${color e0e0e0}${addr ppp0}${color} 
-    Net Wired1: ${color e0e0e0}${font}${downspeed p4p1} Kb/s ${color} ${totaldown p4p1} Downloaded${color} | Net Wired2: ${color e0e0e0}${font}${downspeed p4p2} Kb/s ${color} ${totaldown p4p2} Downloaded${color} | Net Wireless: ${color e0e0e0}${font}${downspeed wlp2s0} Kb/s ${color} ${totaldown wlp2s0} Downloaded${color} | Net VPN: ${color e0e0e0}${font}${downspeed ppp0} Kb/s ${color} ${totaldown ppp0} Downloaded${color} 
+Wired IP1: ${color e0e0e0}${addr p4p1}${color} Wired IP2: ${color e0e0e0}${addr p4p2}${color} Wireless IP: ${color e0e0e0}${addr wlp2s0}${color} ${if_up ppp0}Vpn IP: ${color e0e0e0}${addr ppp0}${color}${endif} 
+    Net Wired1: ${color e0e0e0}${font}${downspeed p4p1} Kb/s ${color} ${totaldown p4p1} Downloaded${color} | Net Wired2: ${color e0e0e0}${font}${downspeed p4p2} Kb/s ${color} ${totaldown p4p2} Downloaded${color} | Net Wireless: ${color e0e0e0}${font}${downspeed wlp2s0} Kb/s ${color} ${totaldown wlp2s0} Downloaded${color} ${if_up ppp0}| Net VPN: ${color e0e0e0}${font}${downspeed ppp0} Kb/s ${color} ${totaldown ppp0} Downloaded${color}${endif} 
 AC:${color e0e0e0} ${acpiacadapter } ${color}Battery: ${color e0e0e0}${battery}${color} Charge/Discharge time: ${color e0e0e0}${battery_time}${color} 
-#${hr 1}
+${hr 1}

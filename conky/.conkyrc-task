@@ -8,16 +8,17 @@ use_spacer right
 use_xft yes
 xftfont Monospace:size=8
 xftalpha 0.8
-text_buffer_size 2048
+text_buffer_size 5048
 update_interval 3.0
 draw_shades no
 # Text stuff
 draw_outline no # amplifies text if yes
 draw_borders no
 uppercase no # set to yes if you want all text to be in uppercase
-
 # Stippled borders?
 stippled_borders 0
+minimum_size  900,600
+maximum_width 672
 
 # border width
 border_width 0
@@ -34,20 +35,22 @@ gap_y 0
 
 
 TEXT
-${voffset 0}${color EAEAEA}${font GE Inspira:pixelsize=100}${time %H:%M}${font}${voffset -70}${offset 10}${color FFA300}${font GE Inspira:pixelsize=60}${time %d} ${voffset -15}${color EAEAEA}${voffset -11}${font GE Inspira:pixelsize=28}${time  %B} ${time %Y}${font}${execpi 1 /home/sajith/scratch/myconfigs/conky/gmail_check} ${voffset}${voffset 14}${font GE Inspira:pixelsize=28}${offset -320}${time %A}${font}
+${voffset 0}${color EAEAEA}${font GE Inspira:pixelsize=100}${time %H:%M}${font}${voffset -70}${offset 10}${color FFA300}${font GE Inspira:pixelsize=60}${time %d} ${voffset -15}${color EAEAEA}${voffset -11}${font GE Inspira:pixelsize=28}${time  %B} ${time %Y}${font}${execpi 30 /home/sajith/scratch/myconfigs/conky/gmail_check} ${voffset}${voffset 14}${font GE Inspira:pixelsize=28}${offset -320}${time %A}${font}
 
 
 
 ${color #B2B2B2}${font Sans:size=16}CALENDAR ${hr 1}${font}${color}
 
-${font Inconsolata:size=13}${offset 40}${color #333333}${execpi 60 DJS=`date +%_d`; cal -3| sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color}'"$DJS"'${color #333333}'/g}${font}${font}
-#${font Inconsolata:size=13}${offset 40}${color #999999}${execpi 60 DJS=`date +%_d`; cal -3| sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color}'"$DJS"'${color #999999}'/g }${font}${font}
+#${font Inconsolata:size=13}${offset 40}${color #333333}${execpi 60 DJS=`date +%_d`; cal -3| sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color}'"$DJS"'${color #333333}'/g}${font}${font}
+${font Inconsolata:size=13}${offset 40}${color #999999}${execpi 60 DJS=`date +%_d`; cal -3| sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color}'"$DJS"'${color #999999}'/g }${font}${font}
 
 ${color #B2B2B2}${font Sans:size=16}AGENDA${hr 1}${font}${color}
 ${font Inconsolata:size=13}${voffset 10}${execpi 1 task agenda --type=conky}${voffset}
-
+#${execpi 100 fortune|cowsay}
 ${color #B2B2B2}${font Sans:size=16}TODO's${hr 1}${font}${color}
 ${font Sans:size=14}
 ${font Inconsolata:size=13}${execpi 1 task todo}
 ${font}
-
+${font Sans:size=11}
+${execpi 700 fortune|cowsay}
+${font}

@@ -171,7 +171,14 @@ export M2_HOME=/home/sajith/apps/apache-maven-3.2.1
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 export JBOSS4_HOME=/home/sajith/apps/JBoss_42_GA
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
+
 export WORK_DIR=/home/sajith/work
+
+export TEXTTEST_INSTALL_DIR=/home/sajith/apps/texttest-3.26
+export TEXTTEST_HOME=/home/sajith/texttest/
+export TEXTTEST_PERSONAL_CONFIG=~/.texttest
+export SOURCES_ROOT=~/work
+
 
 source /home/sajith/scratch/oh-my-git/prompt.sh
 source /home/sajith/scratch/myconfigs/bashscripts/wo_autocomplete

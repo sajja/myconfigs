@@ -1,0 +1,5 @@
+DISPLAY=:0.0
+XAUTHORITY=/home/sajith/.Xauthority
+*/1   *    *    *    *  /usr/bin/task notify
+*/14     *    *    *    *  /home/sajith/scratch/myconfigs/bashscripts/gcal_cron_job >/home/sajith/tmp/google_agenda_download.log
+*/17     *    *    *    *  /home/sajith/scratch/myconfigs/bashscripts/google_import>/home/sajith/tmp/task_import.log

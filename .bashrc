@@ -200,3 +200,4 @@ complete -F kp_options kp
 
 #SPELL CHECKER
 shopt -s cdspell
+fortune -a | cowsay

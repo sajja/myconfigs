@@ -3,6 +3,6 @@ ps -ef | grep conky | grep -v bash | grep -v grep | cut -d " " -f 5 | xargs kill
 
 
 echo "Starting conky..."
-conky -c ../conky/.conkyrc-system &
-conky -c ../conky/.conkyrc-task &
+conky -c /home/sajith/scratch/myconfigs/conky/.conkyrc-system &
+conky -c /home/sajith/scratch/myconfigs/conky/.conkyrc-task &
 

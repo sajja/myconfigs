@@ -9,7 +9,9 @@
     f = fetch
     hu = reset --hard
     u = reset --soft
-#    addm = !sh ~/scratch/myconfigs/bashscripts/git_add_m
     addm = "!git st|grep modified|cut -d ' '  -f 4|xargs git add"
+    cp = cherry-pick
+    sa = stash apply
+    sl = stash list
 [status]
 	displayCommentPrefix = true

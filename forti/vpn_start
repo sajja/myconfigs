@@ -52,7 +52,7 @@ expect -exact "./forticlientsslvpn_cli  --server https://vpn.pagero.com:443 --vp
 send -- "\r"
 expect -exact "\r
 Password for VPN:"
-send -- "XXXXXXX\r"
+send -- "De3pSp^<e9\r"
 expect -exact "\r
 STATUS::Setting up the tunnel\r
 STATUS::Connecting...\r

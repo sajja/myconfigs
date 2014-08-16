@@ -23,7 +23,7 @@ maximum_width 672
 # border width
 border_width 0
 # Default colors and also border colors, grey90 == #e5e5e5
-default_color #FFFFFF 
+#default_color #FFFFFF 
 #color0 4682b4 # 'header' color
 own_window_colour brown
 #alignment bottom_left
@@ -35,7 +35,7 @@ gap_y 0
 
 
 TEXT
-${voffset 0}${color EAEAEA}${font GE Inspira:pixelsize=100}${time %H:%M}${font}${voffset -70}${offset 10}${color FFA300}${font GE Inspira:pixelsize=60}${time %d} ${voffset -15}${color EAEAEA}${voffset -11}${font GE Inspira:pixelsize=28}${time  %B} ${time %Y}${font}${execpi 30 /home/sajith/scratch/myconfigs/conky/gmail_check} ${voffset}${voffset 14}${font GE Inspira:pixelsize=28}${offset -320}${time %A}${font}
+${voffset -17}${color EAEAEA}${font GE Inspira:pixelsize=80}${time %H:%M}${font}${voffset -56}${offset 10}${color FFA300}${font GE Inspira:pixelsize=50}${time %d} ${voffset -7}${color EAEAEA}${voffset -11}${font GE Inspira:pixelsize=28}${time  %B} ${time %Y}${font}${execpi 120 /home/sajith/scratch/myconfigs/conky/gmail_check} ${voffset}${voffset 14}${font GE Inspira:pixelsize=28}${offset -335}${time %A}${font}
 
 
 
@@ -50,7 +50,4 @@ ${font Inconsolata:size=13}${voffset 10}${execpi 1 task agenda --type=conky}${vo
 ${color #B2B2B2}${font Sans:size=16}TODO's${hr 1}${font}${color}
 ${font Sans:size=14}
 ${font Inconsolata:size=13}${execpi 1 task todo}
-${font}
-${font Sans:size=11}
-${execpi 700 fortune|cowsay}
 ${font}

@@ -9,3 +9,6 @@
     f = fetch
     hu = reset --hard
     u = reset --soft
+    addm = !sh ~/scratch/myconfigs/bashscripts/git_add_m
+[status]
+	displayCommentPrefix = true

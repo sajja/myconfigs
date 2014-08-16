@@ -1,7 +1,7 @@
 #!/bin/bash
 newMail=`/usr/bin/curl -su  sajith.silva@pagero.com:sajith@pagero https://mail.google.com/mail/feed/atom |grep -o '<fullcount>[0-9]*</fullcount>'|cut -d ">" -f2 |cut -d "<" -f1`
 if [ $newMail == 0 ];then
-    echo "\${image \$HOME/scratch/myconfigs/conky/no-new-mail.png -p 480,10 -s 70x70}\${offset 120}\${font GE Inspira:pixelsize=14}no new mails\${font}"
+    echo "\${image \$HOME/scratch/myconfigs/conky/no-new-mail.png -p 480,-7 -s 70x70}\${offset 100}\${font GE Inspira:pixelsize=14}no new mails\${font}"
 else
-    echo "\${image \$HOME/scratch/myconfigs/conky/new-mail.png -p 480,10 -s 70x70}\${offset 120}\${font GE Inspira:pixelsize=14}$newMail new mails\${font}" 
+    echo "\${image \$HOME/scratch/myconfigs/conky/new-mail.png -p 480,-7 -s 70x70}\${offset 100}\${font GE Inspira:pixelsize=14}$newMail new mails\${font}" 
 fi

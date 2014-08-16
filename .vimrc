@@ -5,8 +5,6 @@ set hlsearch
 set incsearch
 
 syntax enable
-colorscheme desert
-set background=dark
 set nobackup
 set nowb
 set noswapfile
@@ -31,4 +29,5 @@ nnoremap <C-N> :next<Enter>
 nnoremap <C-P> :prev<Enter>
 set confirm
 
+colorscheme elflord
 

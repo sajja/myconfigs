@@ -24,7 +24,7 @@ function startjboss_j() {
 
 
 
-function deploy() {
+function dep() {
     echo "cleaning test..."
     rm $JBOSS4_HOME/server/st/deploy/paysol-*.ear
     rm $JBOSS4_HOME/server/st/deploy/paysol-*.jar
@@ -34,6 +34,9 @@ function deploy() {
     pushd /home/sajith/work/paysol
     cp ./tests/ear/target/paysol-tests-ear-*-SNAPSHOT.ear $JBOSS4_HOME/server/st/deploy
     cp `find . -name paysol-security-*.jar | grep ./tests/ear/target/` $JBOSS4_HOME/server/st/deploy 
+
+    cp ./core/ear/target/paysol-ear.ear $JBOSS4_HOME/server/default/deploy
+    cp `find . -name paysol-security-*.jar | grep ./core/ear/target/` $JBOSS4_HOME/server/default/deploy 
     popd
 }
 
@@ -48,6 +51,14 @@ function fcreatedb() {
         psql -Upostgres $1 -c "CREATE SCHEMA audit AUTHORIZATION postgres;"
         psql -Upostgres $1 -c "CREATE SCHEMA onboarding AUTHORIZATION postgres;"
     fi
+}
+
+function renamedb() {
+     if [ $# -ne 2 ]; then
+        echo "usage renamedb <oldname> <newname>"
+     else
+        psql -Upostgres -c "ALTER DATABASE $1 RENAME TO $2"
+     fi
 }
 
 function fdropdb() {
@@ -123,7 +134,7 @@ done
 
 function java7() {
     echo "Setting java to java7 JAVA_HOME=/home/sajith/apps/jdk1.7.0_25/"
-    export JAVA_HOME=/home/sajith/apps/jdk1.7.0_25/
+    export JAVA_HOME=/home/sajith/apps/jdk1.7.0_67
     export PATH=$JAVA_HOME/bin:$PATH
     java -version
 }
@@ -162,14 +173,12 @@ alias "df=df -h"
 alias "free=free -h"
 alias "bootstrapst=mvn -Prun-its -pl tests/systemtest prepare-package -o"
 alias "Eterm= Eterm --borderless --buttonbar 0 --trans --shade 0 --scrollbar false"
+alias "sut=sudo shutdown -h now"
 #Variables
 
-#export JAVA_HOME=/home/sajith/apps/jdk1.7.0_25/
-export JAVA_HOME=/home/sajith/apps/java8
-#export M2_HOME=/home/sajith/apps/apache-maven-3.0.5
-export M2_HOME=/home/sajith/apps/apache-maven-3.2.1
-export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
-export JBOSS4_HOME=/home/sajith/apps/JBoss_42_GA
+export JAVA_HOME=/usr/java/jdk1.8.0_05
+export M2_HOME=/home/sajith/apps/apache-maven-3.2.2
+export JBOSS4_HOME=/home/sajith/apps/jboss-4.2.1GA
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
 export WORK_DIR=/home/sajith/work
@@ -188,3 +197,6 @@ complete -F wo_options wo
 complete -F kp_options kp
 
 /usr/bin/setxkbmap -option 'ctrl:nocaps'
+
+#SPELL CHECKER
+shopt -s cdspell

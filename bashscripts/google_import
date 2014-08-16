@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "Starting to import..."
 /usr/bin/task import /home/sajith/.task/import/google_agenda
 echo "import done"

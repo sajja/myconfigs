@@ -15,3 +15,5 @@
     sl = stash list
 [status]
 	displayCommentPrefix = true
+[push]
+	default = simple

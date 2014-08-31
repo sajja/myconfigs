@@ -1,0 +1,24 @@
+# !/bin/bash
+if [[ -z $1 ]]; then
+    echo "usage findnote <search string>"
+    exit 1
+fi
+
+if [[ -z $NOTE_PATH ]]; then
+    echo "NOTE_PATH is not set"
+else
+    cd $NOTE_PATH
+    echo "Using $NOTE_PATH as notepath"
+    echo ""
+   
+    #awk /$1/'{printf "\033[36m%s\033[0m \n  %s\n" ,'FILENAME',$0 }' *.note |sed s/$1/`printf "\e[93m%s\033[0m", $1`/
+    grep $1 *.note |cut -d ":" -f1|uniq | while read -r line ; do
+        cat $line | head -n -11 |sed -E /\("<?xml version"\|"<note version"\|"<text xml"\)/d|sed s/"<title>"/`printf "\033[93m"`/|sed s/"<\/title>"/`printf "\033[0m"`/|sed s/$1/`printf "\033[91m%s\033[0m", $1`/
+
+
+        echo "----------------------------------------------"
+        echo ""
+        # your code goes here
+    done
+    
+fi

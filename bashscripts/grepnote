@@ -1,0 +1,13 @@
+# !/bin/bash
+
+if [[ -z $NOTE_PATH ]]; then
+    echo "NOTE_PATH is not set"
+else
+    cd $NOTE_PATH
+    echo "Using $NOTE_PATH as notepath"
+    echo ""
+   
+    awk /$1/'{printf "\033[36m%s\033[0m \n  %s\n" ,'FILENAME',$0 }' *.note |sed s/$1/`printf "\e[93m%s\033[0m", $1`/
+    
+fi
+

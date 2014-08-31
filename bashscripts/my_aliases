@@ -26,4 +26,4 @@ alias "bootstrapst=mvn -Prun-its -pl tests/systemtest prepare-package -o"
 alias "Eterm= Eterm --borderless --buttonbar 0 --trans --shade 0 --scrollbar false"
 alias "shut=sudo shutdown -P now"
 alias "cless=less -R"
-
+alias "grepnote=/home/sajith/scratch/myconfigs/bashscripts/grepnote"

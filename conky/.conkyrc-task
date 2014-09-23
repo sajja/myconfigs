@@ -18,7 +18,7 @@ uppercase no # set to yes if you want all text to be in uppercase
 # Stippled borders?
 stippled_borders 0
 minimum_size  900,600
-maximum_width 672
+maximum_width 772
 
 # border width
 border_width 0
@@ -35,7 +35,7 @@ gap_y 0
 
 
 TEXT
-${voffset -17}${color EAEAEA}${font GE Inspira:pixelsize=80}${time %H:%M}${font}${voffset -56}${offset 10}${color FFA300}${font GE Inspira:pixelsize=50}${time %d} ${voffset -7}${color EAEAEA}${voffset -11}${font GE Inspira:pixelsize=28}${time  %B} ${time %Y}${font}${execpi 120 /home/sajith/scratch/myconfigs/conky/gmail_check} ${voffset}${voffset 14}${font GE Inspira:pixelsize=28}${offset -335}${time %A}${font}
+${voffset -17}${color EAEAEA}${font GE Inspira:pixelsize=80}${time %H:%M}${font}${voffset -56}${offset 10}${color FFA300}${font GE Inspira:pixelsize=50}${time %d} ${voffset -7}${color EAEAEA}${voffset -11}${font GE Inspira:pixelsize=28}${time  %B} ${time %Y}${font}${execpi 120 /home/sajith/scratch/myconfigs/conky/gmail_check} ${voffset}${voffset 14}${font GE Inspira:pixelsize=28}${offset -245}${time %A}${font}
 
 
 

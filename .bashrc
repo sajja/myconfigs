@@ -26,7 +26,7 @@ export NOTE_PATH=/home/sajith/Dropbox/Documents/gnote
 #TEXT_TEST
 export TEXTTEST_INSTALL_DIR=/home/sajith/apps/texttest-3.26
 export TEXTTEST_HOME=/home/sajith/texttest/
-export TEXTTEST_PERSONAL_CONFIG=~/.texttest
+#export TEXTTEST_PERSONAL_CONFIG=~/.texttest1
 export SOURCES_ROOT=~/work
 
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$TEXTTEST_INSTALL_DIR/source/bin:$PATH

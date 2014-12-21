@@ -1,17 +1,31 @@
 #Functions
-function disp() {
-    xrandr --newmode "1920x1080_60.00"  172.80  1920 2040 2248 2576  1080 1081 1084 1118  -HSync +Vsync
-    xrandr --addmode VGA1 1920x1080_60.00
-    xrandr --output VGA1 --mode 1920x1080_60.00 --right-of LVDS1 --primary
+
+function jt() {
+    cd $JBOSS4_HOME/bin
+    export JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787"
+    echo "******** SETTING DEBUG INFO TO JAVA_OPTS *************"
+    echo $JAVA_OPTS
+
+    ./run.sh -c st -DrunSingletonScheduler=true
 }
 
+
 function startjboss() {
+    export JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787"
+    if [ $# -ne 1 ]; then
+        echo "running with no jrebel"
+    else
+        echo "XXX"
+     #   export JAVA_OPTS=$JAVA_OPTS "-noverify -Drebel.license.url=http://jrebel-license.pagero.local/11c5fba9-6444-4a63-a828-5f78c90a9cab -javaagent:/home/pagero/.IdeaIC13/config/plugins/jr-ide-idea/lib/jrebel/jrebel.jar"
+    fi
     cd $JBOSS4_HOME/bin
     ./run.sh
 }
 
 function startjboss_j() {
+#export JAVA_OPTS="-noverify -Drebel.license.url=http://jrebel-license.pagero.local/11c5fba9-6444-4a63-a828-5f78c90a9cab -javaagent:/home/pagero/.IdeaIC13/config/plugins/jr-ide-idea/lib/jrebel/jrebel.jar"
         cd $JBOSS4_HOME/bin
+        export JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787"
         ./run.sh  -DrunSingletonScheduler=true
 }
 
@@ -21,9 +35,12 @@ function dep() {
     rm $JBOSS4_HOME/server/st/deploy/paysol-*.jar
     rm -rf $JBOSS4_HOME/server/st/work/*
     rm -rf $JBOSS4_HOME/server/st/tmp/*
+    rm -rf $JBOSS4_HOME/server/default/log/*
+    rm -rf $JBOSS4_HOME/server/st/log/*
     echo "deploying to test..."
-    pushd /home/sajith/work/paysol
-    cp ./tests/ear/target/paysol-tests-ear-*-SNAPSHOT.ear $JBOSS4_HOME/server/st/deploy
+#    pushd /home/sajith/work/paysol
+    pushd `pwd`
+    cp ./tests/ear/target/paysol-tests-ear-*.ear $JBOSS4_HOME/server/st/deploy
     cp `find . -name paysol-security-*.jar | grep ./tests/ear/target/` $JBOSS4_HOME/server/st/deploy
 
     cp ./core/ear/target/paysol-ear.ear $JBOSS4_HOME/server/default/deploy

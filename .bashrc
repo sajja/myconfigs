@@ -39,8 +39,11 @@ complete -F wo_options wo
 complete -F kp_options kp
 
 #Disable CAPS
-/usr/bin/setxkbmap -option 'ctrl:nocaps'
+#/usr/bin/setxkbmap -option 'ctrl:nocaps'
 
 #SPELL CHECKER
-shopt -s cdspell
-fortune -a | cowsay
+#shopt -s cdspell
+#if [ "$PS1" ]; then
+# fortune -s | cowsay -f tux
+#fi
+PS1="-|-"

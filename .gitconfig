@@ -17,3 +17,7 @@
 	displayCommentPrefix = true
 [push]
 	default = simple
+[merge]
+	tool = meld
+[init]
+	templatedir = ~/.git_template.donotdelete

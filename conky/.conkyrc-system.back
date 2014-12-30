@@ -1,0 +1,69 @@
+#avoid flicker
+gap_x 0
+gap_y 0
+default_color  8f8f8f
+own_window_colour 151515
+draw_outline no
+##font
+use_xft yes
+xftfont bauhaus:pixelsize=16
+
+#to prevent window from moving
+background no
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+use_spacer right
+use_xft yes
+text_buffer_size 2048
+update_interval 3.0
+draw_shades no
+# Text stuff
+draw_outline no # amplifies text if yes
+draw_borders no
+uppercase no # set to yes if you want all text to be in uppercase
+
+# Stippled borders?
+stippled_borders 0
+
+# border width
+border_width 0
+# Default colors and also border colors, grey90 == #e5e5e5
+#default_color grey90
+#color0 4682b4 # 'header' color
+#own_window_colour brown #alignment bottom_left
+alignment top_letf
+
+# Gap between borders of screen and text
+gap_x 490
+gap_y 185
+
+ TEXT 
+CPU1 (${cpu cpu1}%)  ${cpubar cpu1 10, 260}
+
+CPU2 (${cpu cpu2}%)  ${cpubar cpu2 10, 240} 
+
+CPU3 (${cpu cpu3}%)  ${cpubar cpu3 10, 210} 
+
+CPU4 (${cpu cpu3}%)  ${cpubar cpu4 10, 190} 
+
+/                  ${fs_bar 10,180 /}
+
+/home         ${fs_bar 10,170 /home}
+
+Mem           ${membar 10,170}
+
+Swap          ${swapbar 10,180}
+
+${if_up ppp0}ppp0          ${downspeedgraph ppp0 35, 190}${endif}
+${if_up enp12s0}enp12s0    ${downspeedgraph enp12s0 35, 220}${endif}
+${if_up wlp2s0}wlp2s0      ${downspeedgraph wlp2s0 35, 260}${endif}
+System Info  ${hr}
+  ${color orange}Arch linux ${color} ${kernel} ${exec uname -m} | Uptime: ${color e0e0e0}${font}$uptime ${color}
+  AC:${color e0e0e0} ${acpiacadapter } ${color}Battery: ${color e0e0e0}${battery}${color} Charge/Discharge time: ${color e0e0e0}${battery_time}${color}
+Network ${hr}
+  ${if_up ppp0}ppp0:${color e0e0e0}${addr ppp0}${color} | ${endif}${if_up enp12s0}enp12s0: ${color e0e0e0}${addr enp12s0}${color} | ${endif}${if_up wlp2s0}wlp2s0:${color e0e0e0}${addr wlp2s0}${color}${endif}
+IO ${hr}
+  Read: ${diskiograph_read /dev/sda 9,200 000033 3299cc} | Write: ${diskiograph_write /dev/sda 9,200 000033 3299cc} 

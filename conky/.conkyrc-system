@@ -43,7 +43,7 @@ gap_y 0
 
 
 TEXT
-DISTRO :${color 333300} ${exec cat /etc/redhat-release}${color} | Uptime: ${color e0e0e0}${font}$uptime ${color}
+DISTRO :${color darkgoldenrod4} Arch linux ${color} | Uptime: ${color e0e0e0}${font}$uptime ${color}
     CPU : CPU1 (${cpu cpu1}%)  ${cpubar cpu1 4, 90}     CPU2 (${cpu cpu2}%)    ${cpubar cpu2 4, 90}    CPU3 (${cpu cpu3}%) ${cpubar cpu3 4, 90}    CPU4 (${cpu cpu4}%) ${cpubar cpu4 4, 90}
 RAM:  ${color e0e0e0}$mem / $memmax ($memperc%)${color} ${membar 4, 90}     ${color}SWAP: ${color e0e0e0}${font}$swap / $swapmax ($swapperc%)${color} ${swapbar 4, 90} 
     Root: ${color e0e0e0}${font}${fs_free /} / ${fs_size /} ${color} Home: ${color e0e0e0}${font}${fs_free /home}/${fs_size /home} ${color}Tmp: ${color e0e0e0}${font}${fs_free /tmp}/${fs_size /tmp} ${color} |  DIO: ${color e0e0e0}${font}${diskio}${color}

@@ -13,8 +13,8 @@ source /home/sajith/scratch/myconfigs/bashscripts/my_functions
 source /home/sajith/scratch/myconfigs/bashscripts/my_aliases
 
 #Variables
-export JAVA_HOME=/usr/java/jdk1.8.0_05
-export M2_HOME=/home/sajith/apps/apache-maven-3.2.2
+export JAVA_HOME=/home/sajith/apps/jdk1.7.0_71
+export M2_HOME=/home/sajith/tools/apache-maven-3.2.5
 export JBOSS4_HOME=/home/sajith/apps/jboss-4.2.1GA
 
 #WORK ON
@@ -24,14 +24,15 @@ export WORK_DIR=/home/sajith/work
 export NOTE_PATH=/home/sajith/Dropbox/Documents/gnote
 
 #TEXT_TEST
-export TEXTTEST_INSTALL_DIR=/home/sajith/apps/texttest-3.26
+export TEXTTEST_INSTALL_DIR=/home/sajith/apps/TextTest-3.27.1
+#export TEXTTEST_INSTALL_DIR=/home/sajith/apps/texttest-3.26
 export TEXTTEST_HOME=/home/sajith/texttest/
-#export TEXTTEST_PERSONAL_CONFIG=~/.texttest1
-export SOURCES_ROOT=~/work
+export TEXTTEST_PERSONAL_CONFIG=~/.texttest
+export SOURCE_ROOT=~/work
 
-export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$TEXTTEST_INSTALL_DIR/source/bin:$PATH
+export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$TEXTTEST_INSTALL_DIR/bin:/home/sajith/apps/scala-2.10.4/bin/:$PATH
 
-source /home/sajith/scratch/oh-my-git/prompt.sh
+#source /home/sajith/scratch/oh-my-git/prompt.sh
 source /home/sajith/scratch/myconfigs/bashscripts/wo_autocomplete
 source /home/sajith/scratch/myconfigs/bashscripts/kp_autocomplete
 
@@ -46,4 +47,4 @@ complete -F kp_options kp
 #if [ "$PS1" ]; then
 # fortune -s | cowsay -f tux
 #fi
-PS1="-|-"
+complete -cf sudo

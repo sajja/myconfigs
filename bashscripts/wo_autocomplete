@@ -6,6 +6,6 @@ wo_options()
   local curr_arg;
   if [[ ! -z "$WORK_DIR" ]];then 
       curr_arg=${COMP_WORDS[COMP_CWORD]}
-      COMPREPLY=( $(compgen -W '`ls -d /home/sajith/work/$curr_arg* 2>/dev/null | cut -d '/' -f5`' -- $curr_arg ) );
+      COMPREPLY=( $(compgen -W '`ls -d /home/sajith/work/$curr_arg*/ 2>/dev/null | cut -d '/' -f5`' -- $curr_arg ) );
   fi 
 }

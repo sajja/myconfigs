@@ -1,11 +1,51 @@
 #Functions
 
+
+#***************** Docker **************************
+
+function dps() {
+    echo $#
+    if [ $# -eq 1 ]; then
+        sudo docker ps | grep $1 --color=always 
+    else
+        sudo docker ps
+    fi
+}
+
+function dpsa() {
+    if [ $# -eq 1 ]; then
+        sudo docker ps -a | grep $1 --color=always 
+    else
+        sudo docker ps -a
+    fi
+}
+
+function di() {
+    if [ $# -eq 1 ]; then
+        sudo docker images | grep $1 --color=always 
+    else
+        sudo docker images
+    fi
+}
+
+
+
+#***************** JBOSS related functions ***********************
 function jt() {
+    echo "************* cleaning logs *************"
+    cd $JBOSS4_HOME/server/st/log
+    echo "" > jboss.log
+    echo "************  Starting jboss ST profile in DEBUG mode **************"
+    echo ""
+    echo ""
+    echo ""
+    echo ""
     cd $JBOSS4_HOME/bin
     export JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787"
-    echo "******** SETTING DEBUG INFO TO JAVA_OPTS *************"
-    echo $JAVA_OPTS
-
+    echo ""
+    echo ""
+    echo ""
+    echo ""
     ./run.sh -c st -DrunSingletonScheduler=true
 }
 
@@ -14,21 +54,21 @@ function startjboss() {
     export JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787"
     if [ $# -ne 1 ]; then
         echo "running with no jrebel"
-    else
-        echo "XXX"
-     #   export JAVA_OPTS=$JAVA_OPTS "-noverify -Drebel.license.url=http://jrebel-license.pagero.local/11c5fba9-6444-4a63-a828-5f78c90a9cab -javaagent:/home/pagero/.IdeaIC13/config/plugins/jr-ide-idea/lib/jrebel/jrebel.jar"
     fi
     cd $JBOSS4_HOME/bin
     ./run.sh
 }
 
 function startjboss_j() {
-#export JAVA_OPTS="-noverify -Drebel.license.url=http://jrebel-license.pagero.local/11c5fba9-6444-4a63-a828-5f78c90a9cab -javaagent:/home/pagero/.IdeaIC13/config/plugins/jr-ide-idea/lib/jrebel/jrebel.jar"
         cd $JBOSS4_HOME/bin
         export JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787"
         ./run.sh  -DrunSingletonScheduler=true
 }
 
+
+
+
+# ********************** PAYSOL BUILD funcitons *******************************
 function dep() {
     echo "cleaning test..."
     rm $JBOSS4_HOME/server/st/deploy/paysol-*.ear
@@ -38,7 +78,6 @@ function dep() {
     rm -rf $JBOSS4_HOME/server/default/log/*
     rm -rf $JBOSS4_HOME/server/st/log/*
     echo "deploying to test..."
-#    pushd /home/sajith/work/paysol
     pushd `pwd`
     cp ./tests/ear/target/paysol-tests-ear-*.ear $JBOSS4_HOME/server/st/deploy
     cp `find . -name paysol-security-*.jar | grep ./tests/ear/target/` $JBOSS4_HOME/server/st/deploy
@@ -48,16 +87,32 @@ function dep() {
     popd
 }
 
+
+#********************** Postgresql related functions ******************************8
+function copydb() {
+
+    if [ $# -ne 2 ]; then
+        echo "usage copydb <dbname>"
+    else
+        echo "Terminating backend connection to $1"
+        psql -Upostgres -h localhost -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='$1'"
+        
+        psql -Upostgres -h localhost -c "CREATE DATABASE \"$2\" WITH TEMPLATE \"$1\";"
+        psql -Upostgres -h localhost $1 -c "CREATE SCHEMA onboarding AUTHORIZATION postgres;"
+    fi
+}
+
 function fcreatedb() {
 
-     if [ $# -ne 1 ]; then
+    if [ $# -ne 1 ]; then
         echo "usage fcreatedb <dbname>"
-     else
-    psql -Upostgres  -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='$1'"
-        dropdb -Upostgres $1
-        createdb -Upostgres $1 -Eutf-8
-        psql -Upostgres $1 -c "CREATE SCHEMA audit AUTHORIZATION postgres;"
-        psql -Upostgres $1 -c "CREATE SCHEMA onboarding AUTHORIZATION postgres;"
+    else
+
+    psql -Upostgres  -h localhost -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='$1'"
+        dropdb -Upostgres -h localhost $1
+        createdb -Upostgres -h localhost $1 -Eutf-8 -T template0
+        psql -Upostgres $1 -h localhost -c "CREATE SCHEMA audit AUTHORIZATION postgres;"
+        psql -Upostgres $1 -h localhost -c "CREATE SCHEMA onboarding AUTHORIZATION postgres;"
     fi
 }
 
@@ -74,8 +129,8 @@ function fdropdb() {
     if [ $# -ne 1 ]; then
         echo "usage fdropdb <dbname>"
     else
-    psql -Upostgres  -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='$1'"
-        dropdb -Upostgres $1
+    psql -h localhost -Upostgres  -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='$1'"
+        dropdb -Upostgres -h localhost $1
     fi
 }
 
@@ -128,9 +183,6 @@ do
         Exit code is - `if [ $exitcode = 0 ]; then echo Success; else echo Error; fi`"
     sleep 3
 done
-#notify-send "Task you submitted is completed 
-#Exit code is - `if [ \$? = 0 ]; then echo Success; else echo Error; fi`"
-#
 }
 
 
@@ -143,7 +195,7 @@ function java7() {
 
 function java8() {
     echo "Setting java to java8 /home/sajith/apps/java8"
-    export JAVA_HOME=/home/sajith/apps/java8
+    export JAVA_HOME=/home/sajith/apps/jdk1.8.0_25
     export PATH=$JAVA_HOME/bin:$PATH
     java -version
 }

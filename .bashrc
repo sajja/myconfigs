@@ -32,20 +32,12 @@ export SOURCE_ROOT=~/work
 
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$TEXTTEST_INSTALL_DIR/bin:/home/sajith/apps/scala-2.10.4/bin/:$PATH
 
-source /home/sajith/scratch/oh-my-git/prompt.sh
+#source /home/sajith/scratch/oh-my-git/prompt.sh
 source /home/sajith/scratch/myconfigs/bashscripts/wo_autocomplete
 source /home/sajith/scratch/myconfigs/bashscripts/kp_autocomplete
 
 complete -F wo_options wo
 complete -F kp_options kp
-
-#Map media control key to PgUp/PgDown
-xmodmap -e "keycode 171=Next"
-xmodmap -e "keycode 173=Prior"
-#Disable Dell e5530 stupid PgUp/Down keys, which is so poorly placed.
-xmodmap -e "keycode 117=NoSymbol"
-xmodmap -e "keycode 112=NoSymbol"
-
 
 #Disable CAPS
 #/usr/bin/setxkbmap -option 'ctrl:nocaps'

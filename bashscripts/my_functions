@@ -28,6 +28,31 @@ function di() {
     fi
 }
 
+function usbkeyboard() {
+    if [[ ! -z "$1" ]]; then
+        if [ $1 = "on" ]; then
+            echo "Keymap changed to USB keyboard. Enabling PgUp/PgDn"
+            #Map media control key to PgUp/PgDown
+            #Disable Dell e5530 stupid PgUp/Down keys, which is so poorly placed.
+            xmodmap -e "keycode 117=Next"
+            xmodmap -e "keycode 112=Prior"
+        elif [ $1 = "off" ]; then
+            echo "Switching to laptop keymap. Disabling PgUp/PgDn"
+            #Map media control key to PgUp/PgDown
+            xmodmap -e "keycode 171=Next"
+            xmodmap -e "keycode 173=Prior"
+            #Disable Dell e5530 stupid PgUp/Down keys, which is so poorly placed.
+            xmodmap -e "keycode 117=NoSymbol"
+            xmodmap -e "keycode 112=NoSymbol"
+        else
+            echo "xxxxn"
+        fi    
+        
+    else
+        echo  "Usage usbkeybord on|off"
+    fi
+
+}
 
 
 #***************** JBOSS related functions ***********************

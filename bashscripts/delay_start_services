@@ -4,9 +4,8 @@ if [[ `sudo systemctl status docker|grep -o "inactive"` = "inactive" ]]; then
     sudo systemctl start docker
 fi 
 
-if [[ `sudo systemctl status rabbitmq-server | grep -o "inactive"` = "inactive" ]]; then
-    sudo systemctl start rabbitmq-server 
-fi
+#if [[ `sudo systemctl status rabbitmq-server | grep -o "inactive"` = "inactive" ]]; then
+#    sudo systemctl start rabbitmq-server 
+#fi
 
-notify-send "Delay Start Services" "Docker `sudo systemctl status docker | grep -oP "^ .*Active: \w*"|grep -oP ": \w*"`
-Rabbit `sudo systemctl status rabbitmq-server| grep -oP "^ .*Active: \w*"|grep -oP ": \w*"`"
+notify-send "Delay Start Services" "Docker `sudo systemctl status docker | grep -oP "^ .*Active: \w*"|grep -oP ": \w*"`"

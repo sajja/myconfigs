@@ -15,6 +15,7 @@ set tabstop=4
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+set nu
 
 "Smart paste with F5 to toggel
 set invpaste paste
@@ -29,5 +30,5 @@ nnoremap <C-N> :next<Enter>
 nnoremap <C-P> :prev<Enter>
 set confirm
 
-colorscheme elflord
+colorscheme c
 

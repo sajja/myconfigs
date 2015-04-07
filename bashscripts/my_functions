@@ -225,3 +225,6 @@ function java8() {
     java -version
 }
 
+function title() {
+    echo -en "\033]2;$1\007"
+}

@@ -39,4 +39,4 @@ alias pm="pacman"
 alias ll="ls -l"
 alias sbtd="sbt -v -jvm-debug 4004"
 alias vpnrest="cp -r /home/sajith/.fctsslvpnhistory_pagero /home/sajith/.fctsslvpnhistory"
-
+alias hib="systemctl hibernate"

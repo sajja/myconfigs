@@ -55,6 +55,15 @@ function usbkeyboard() {
 }
 
 
+function remove_known_host_entry() {
+    if [[ ! -z "$1" ]]; then
+        cat ~/.ssh/known_hosts|sed "$1d"
+        #cat ~/.ssh/known_hosts|sed "$1d" > ~/.ssh/known_hosts
+    else
+        echo "remove_known_host_entry <line number>"
+    fi
+}
+
 #***************** JBOSS related functions ***********************
 function jt() {
     echo "************* cleaning logs *************"

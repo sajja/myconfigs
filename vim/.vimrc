@@ -31,4 +31,9 @@ nnoremap <C-P> :prev<Enter>
 set confirm
 
 colorscheme c
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
+set laststatus=2
+set t_Co=256
 
+map <F12> :set number!<CR>
+imap <F12> <c-o>:set number!<CR>

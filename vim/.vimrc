@@ -37,3 +37,10 @@ set t_Co=256
 
 map <F12> :set number!<CR>
 imap <F12> <c-o>:set number!<CR>
+
+
+
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+

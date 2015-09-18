@@ -1,6 +1,6 @@
 alias "cbld=mvn clean install -DskipTests  -T 1C"
 alias "bld=mvn install -DskipTests  -T 1C"
-alias "ut=mvn -Pfast.install"
+alias "ut=mvn -Pfast.install -T 1C"
 alias "it=mvn -Prun-its -pl core/ejb/ejb-integration-test verify"
 alias "st=mvn -Prun-its -pl tests/systemtest verify"
 alias "rnet=sudo systemctl restart network.service"

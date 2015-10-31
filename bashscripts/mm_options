@@ -1,0 +1,12 @@
+#!/bin/bash
+#Use this script to enable double tab to list directories in a folder indicated by $WORK_DIR
+
+mm_options()
+{
+  local curr_arg;
+  if [ -e "/home/sajith/scratch/myconfigs/bashscripts/list" ]; then
+    curr_arg=${COMP_WORDS[COMP_CWORD]}
+    #COMPREPLY=( $(compgen -W '`grep -P "^$1.*" /home/sajith/scratch/myconfigs/bashscripts/list`' -- $curr_arg ) );
+    COMPREPLY=( $(compgen -W '`grep $curr_arg  list`' -- $curr_arg ) );
+  fi
+}

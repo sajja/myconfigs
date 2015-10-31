@@ -2,6 +2,9 @@
 
 
 #***************** Docker **************************
+function title () {
+    echo -en "\033]0;$1\a"
+}
 
 function dps() {
     echo $#
@@ -232,8 +235,4 @@ function java8() {
     export JAVA_HOME=/home/sajith/apps/jdk1.8.0_25
     export PATH=$JAVA_HOME/bin:$PATH
     java -version
-}
-
-function title() {
-    echo -en "\033]2;$1\007"
 }

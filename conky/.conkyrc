@@ -12,7 +12,7 @@ own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
 text_buffer_size 2048
 minimum_size 220 5
-maximum_width 1000
+maximum_width 3000
 draw_shades yes
 draw_outline no
 draw_borders no
@@ -20,56 +20,28 @@ draw_graph_borders yes
 default_color white
 default_shade_color black
 default_outline_color green
-alignment top_left
-gap_x 12
-gap_y 35
+alignment bottom_left
+gap_x 10 
+gap_y 10
 no_buffers yes
 uppercase no
-cpu_avg_samples 2
 override_utf8_locale no
 uppercase no # set to yes if you want all text to be in uppercase
 
 
 
 TEXT
-${font Sans:size=12}${color FF9933}SYSTEM ${hr 1}${color}${font}
+${font Sans:size=18}${color FF9933}SYSTEM ${hr 1}${color}${font}
 
 Kernel: $alignr$kernel
 Uptime: $alignr$uptime
 
-${color 99FF99}CPU1 ${color} ${alignr}${cpu cpu1}%
-${color CCCCFF}${cpubar cpu1} ${color}
-${color 99FF99}CPU2 ${color} ${alignr}${cpu cpu2}%
-${color CCCCFF}${cpubar cpu2} ${color}
-${color 99FF99}CPU3${color} ${alignr}${cpu cpu3}%
-${color CCCCFF}${cpubar cpu3} ${color}
-${color 99FF99}CPU4${color}${alignr}${cpu cpu4}%
-${color CCCCFF}${cpubar cpu4}${color}
-
-${color 66FFFF}Ram ${alignr}$mem / $memmax ($memperc%)${color}
-${color CCCCFF}${membar 4}${color}
-${color 66FFFF}Swap ${alignr}$swap / $swapmax ($swapperc%)${color}
-${color CCCCFF}${swapbar 4}${color}
-
-${color 99FF99}Highest CPU $alignr CPU% MEM%${color}
-${top name 1}$alignr${top cpu 1}${top mem 1}
-${top name 2}$alignr${top cpu 2}${top mem 2}
-${top name 3}$alignr${top cpu 3}${top mem 3}
-
-${color 99FF99}Highest MEM $alignr CPU% MEM%${color}
-${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
-${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
-${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
-
-${font Sans:size=12}${color  FF9933}Filesystem ${hr 1}${color}${font}
-Root: ${alignr}${fs_free /} / ${fs_size /}
-Home: ${alignr}${fs_free /home}/${fs_size /home}
-
-${font Sans:size=12}${color FF9933}AGENDA ${hr 1}${color}${font}
-${execpi 400 gcalcli --conky --calendar sajith.silva@pagero.com agenda }
-${font Sans:size=12}${color FF9933}TODO ${hr 1}${color}${font}
-${font Sans:size=12}
-#${color 99FF99}${execi 200 task minimal}${color}
+${font Sans:size=18}${color FF9933}TODO ${hr 2}${color}${font}
+${font Sans:size=15}
+${execpi 20 /home/sajith/Dropbox/todo.txt_cli-2.10/todo.sh ls -TOR|sed '/TODO/d'|sed '/DONE/d'|sed 's/^.\[0;37m//g'|sed 's/\[0m//g'}
 ${font}
-#${color #999999}${execpi 60 DJS=`date +%_d`; cal -3| sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color}'"$DJS"'${color #999999}'/}
+${font Sans:size=18}${color FF9933}READ ${hr 1}${color}${font}
+${font Sans:size=15}
+${execpi 20 /home/sajith/Dropbox/todo.txt_cli-2.10/todo.sh ls +TOR|sed '/TODO/d'|sed '/DONE/d'|sed 's/^.\[0;37m//g'|sed 's/\[0m//g'}
+${font}
 

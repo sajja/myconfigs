@@ -13,8 +13,8 @@ source /home/sajith/scratch/myconfigs/bashscripts/my_functions
 source /home/sajith/scratch/myconfigs/bashscripts/my_aliases
 
 #Variables
-export JAVA_HOME=/usr/java/jdk1.8.0_45/
-export M2_HOME=/home/sajith/tools/apache-maven-3.3.3
+export JAVA_HOME=/home/sajith/apps/jdk1.8.0_74
+export M2_HOME=/home/sajith/tools/apache-maven-3.3.9
 export JBOSS4_HOME=/home/sajith/apps/jboss-4.2.1GA
 
 #WORK ON
@@ -32,12 +32,24 @@ export SOURCE_ROOT=~/work
 export GOROOT=/usr/lib/golang/bin/linux_amd64/
 export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/scratch
-export PATH=/home/sajith/tools/sbt/bin:$JAVA_HOME/bin:$M2_HOME/bin:$TEXTTEST_INSTALL_DIR/bin:/home/sajith/apps/scala-2.10.4/bin/:/home/sajith/.local/bin:/home/sajith/tools/scala-2.11.6/bin:$PATH
+export PATH=/home/sajith/Dropbox/todo.txt_cli-2.10:/home/sajith/tools/sbt/bin:$JAVA_HOME/bin:$M2_HOME/bin:$TEXTTEST_INSTALL_DIR/bin:/home/sajith/apps/scala-2.10.4/bin/:/home/sajith/.local/bin:/home/sajith/tools/scala-2.11.6/bin:$PATH
 
 source /home/sajith/scratch/oh-my-git/prompt.sh
 source /home/sajith/scratch/myconfigs/bashscripts/wo_autocomplete
 source /home/sajith/scratch/myconfigs/bashscripts/kp_autocomplete
-source /home/sajith/scratch/myconfigs/bashscripts/mm_autocomplete
+source /home/sajith/Dropbox/todo.txt_cli-2.10/todo_completion
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
 
 complete -F wo_options wo
 complete -F kp_options kp

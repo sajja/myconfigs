@@ -11,8 +11,8 @@ own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
 text_buffer_size 2048
-minimum_size 220 5
-maximum_width 3000
+minimum_size 520 500
+maximum_width 4000
 draw_shades yes
 draw_outline no
 draw_borders no
@@ -29,7 +29,6 @@ override_utf8_locale no
 uppercase no # set to yes if you want all text to be in uppercase
 
 
-
 TEXT
 ${font Sans:size=18}${color FF9933}SYSTEM ${hr 1}${color}${font}
 
@@ -38,10 +37,10 @@ Uptime: $alignr$uptime
 
 ${font Sans:size=18}${color FF9933}TODO ${hr 2}${color}${font}
 ${font Sans:size=15}
-${execpi 20 /home/sajith/Dropbox/todo.txt_cli-2.10/todo.sh ls -TOR|sed '/TODO/d'|sed '/DONE/d'|sed 's/^.\[0;37m//g'|sed 's/\[0m//g'}
+${execpi 20 /home/sajith/Dropbox/todo.txt_cli-2.10/todo.sh ls -TOR|sed '/TODO/d'|sed '/DONE/d'|sed 's/^.\[0;37m//g'|sed 's/\[0m//g'|sed 's/--//g'}
 ${font}
 ${font Sans:size=18}${color FF9933}READ ${hr 1}${color}${font}
 ${font Sans:size=15}
-${execpi 20 /home/sajith/Dropbox/todo.txt_cli-2.10/todo.sh ls +TOR|sed '/TODO/d'|sed '/DONE/d'|sed 's/^.\[0;37m//g'|sed 's/\[0m//g'}
+${execpi 20 /home/sajith/Dropbox/todo.txt_cli-2.10/todo.sh ls +TOR|sed '/TODO/d'|sed '/DONE/d'|sed 's/^.\[0;37m//g'|sed 's/\[0m//g'|sed 's/--//g'}
 ${font}
 

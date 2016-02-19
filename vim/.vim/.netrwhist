@@ -1,8 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/sajith/scratch/myconfigs/bashscripts'
-let g:netrw_dirhist_2='/home/sajith/scratch/myconfigs'
-let g:netrw_dirhist_3='/home/sajith/.recipe'
-let g:netrw_dirhist_4='/home/sajith/work/platformrecipe/recipe/environment/colombo'
-let g:netrw_dirhist_5='/home/sajith/.local'
-let g:netrw_dirhist_6='/home/sajith/scratch/myconfigs/bashscripts'
+let g:netrw_dirhist_cnt =0

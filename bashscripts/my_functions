@@ -6,30 +6,6 @@ function title () {
     echo -en "\033]0;$1\a"
 }
 
-function dps() {
-    echo $#
-    if [ $# -eq 1 ]; then
-        sudo docker ps | grep $1 --color=always 
-    else
-        sudo docker ps
-    fi
-}
-
-function dpsa() {
-    if [ $# -eq 1 ]; then
-        sudo docker ps -a | grep $1 --color=always 
-    else
-        sudo docker ps -a
-    fi
-}
-
-function di() {
-    if [ $# -eq 1 ]; then
-        sudo docker images | grep $1 --color=always 
-    else
-        sudo docker images
-    fi
-}
 
 function usbkeyboard() {
     if [[ ! -z "$1" ]]; then
@@ -57,121 +33,18 @@ function usbkeyboard() {
 
 }
 
-
-function remove_known_host_entry() {
-    if [[ ! -z "$1" ]]; then
-        cat ~/.ssh/known_hosts|sed "$1d"
-        #cat ~/.ssh/known_hosts|sed "$1d" > ~/.ssh/known_hosts
-    else
-        echo "remove_known_host_entry <line number>"
-    fi
+function panelreset() {
+    xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s eDP1
 }
 
-#***************** JBOSS related functions ***********************
-function jt() {
-    echo "************* cleaning logs *************"
-    cd $JBOSS4_HOME/server/st/log
-    echo "" > jboss.log
-    echo "************  Starting jboss ST profile in DEBUG mode **************"
-    echo ""
-    echo ""
-    echo ""
-    echo ""
-    cd $JBOSS4_HOME/bin
-    export JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787"
-    echo ""
-    echo ""
-    echo ""
-    echo ""
-    ./run.sh -c st -DrunSingletonScheduler=true
+function panelhdmi() {
+    xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s HDMI1
 }
 
-
-function startjboss() {
-    export JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787"
-    if [ $# -ne 1 ]; then
-        echo "running with no jrebel"
-    fi
-    cd $JBOSS4_HOME/bin
-    ./run.sh
+function panelvga() {
+    xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s VGA1
 }
 
-function startjboss_j() {
-        cd $JBOSS4_HOME/bin
-        export JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787"
-        ./run.sh  -DrunSingletonScheduler=true
-}
-
-
-
-
-# ********************** PAYSOL BUILD funcitons *******************************
-function dep() {
-    echo "cleaning test..."
-    rm $JBOSS4_HOME/server/st/deploy/paysol-*.ear
-    rm $JBOSS4_HOME/server/st/deploy/paysol-*.jar
-    rm -rf $JBOSS4_HOME/server/st/work/*
-    rm -rf $JBOSS4_HOME/server/st/tmp/*
-    rm -rf $JBOSS4_HOME/server/default/log/*
-    rm -rf $JBOSS4_HOME/server/st/log/*
-    echo "deploying to test..."
-    pushd `pwd`
-    cp ./tests/ear/target/paysol-tests-ear-*.ear $JBOSS4_HOME/server/st/deploy
-    cp `find . -name paysol-security-*.jar | grep ./tests/ear/target/` $JBOSS4_HOME/server/st/deploy
-
-    cp ./core/ear/target/paysol-ear.ear $JBOSS4_HOME/server/default/deploy
-    cp `find . -name paysol-security-*.jar | grep ./core/ear/target/` $JBOSS4_HOME/server/default/deploy
-    popd
-}
-
-
-#********************** Postgresql related functions ******************************8
-function copydb() {
-
-    if [ $# -ne 2 ]; then
-        echo "usage copydb <dbname>"
-    else
-        echo "Terminating backend connection to $1"
-        psql -Upostgres -h localhost -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='$1'"
-        
-        psql -Upostgres -h localhost -c "CREATE DATABASE \"$2\" WITH TEMPLATE \"$1\";"
-        psql -Upostgres -h localhost $1 -c "CREATE SCHEMA onboarding AUTHORIZATION postgres;"
-    fi
-}
-
-function fcreatedb() {
-
-    if [ $# -ne 1 ]; then
-        echo "usage fcreatedb <dbname>"
-    else
-
-    psql -Upostgres  -h localhost -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='$1'"
-        dropdb -Upostgres -h localhost $1
-        createdb -Upostgres -h localhost $1 -Eutf-8 -T template0
-        psql -Upostgres $1 -h localhost -c "CREATE SCHEMA audit AUTHORIZATION postgres;"
-        psql -Upostgres $1 -h localhost -c "CREATE SCHEMA onboarding AUTHORIZATION postgres;"
-    fi
-}
-
-function renamedb() {
-     if [ $# -ne 2 ]; then
-        echo "usage renamedb <oldname> <newname>"
-     else
-        psql -Upostgres -c "ALTER DATABASE $1 RENAME TO $2"
-     fi
-}
-
-function fdropdb() {
-
-    if [ $# -ne 1 ]; then
-        echo "usage fdropdb <dbname>"
-    else
-    psql -h localhost -Upostgres  -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='$1'"
-        dropdb -Upostgres -h localhost $1
-    fi
-}
-
-function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 function wo {
     if [[ -z "$WORK_DIR" ]]; then
@@ -184,13 +57,6 @@ function wo {
         fi
     fi
 }
-
-function update_po_db() {
-    cd /home/sajith/work/paysol/bootstrap/data/src/main/resources
-    psql -Upostgres paysol -f updatePaysol.sql
-    psql -Upostgres archive -f updateArchive.sql
-}
-
 
 function kp () {
     if [[ -z "$1" ]]; then

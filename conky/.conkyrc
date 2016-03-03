@@ -41,6 +41,6 @@ ${execpi 20 /home/sajith/Dropbox/todo.txt_cli-2.10/todo.sh ls -TOR|sed '/TODO/d'
 ${font}
 ${font Sans:size=18}${color FF9933}READ ${hr 1}${color}${font}
 ${font Sans:size=15}
-${execpi 20 /home/sajith/Dropbox/todo.txt_cli-2.10/todo.sh ls +TOR|sed '/TODO/d'|sed '/DONE/d'|sed 's/^.\[0;37m//g'|sed 's/\[0m//g'|sed 's/--//g'}
+${execpi 20 /home/sajith/Dropbox/todo.txt_cli-2.10/todo.sh ls +TOR|sed '/TODO/d'|sed '/DONE/d'|sed 's/^.\[0;37m//g'|sed 's/\[0m//g'|sed 's/--//g'|sed 's/+ToRead//g'}
 ${font}
 

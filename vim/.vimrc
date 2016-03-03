@@ -47,5 +47,7 @@ nnoremap <Leader>P "*P
 
 set clipboard=unnamedplus
 
+:map <F2> i<CR><ESC>
+
 execute pathogen#infect()
 

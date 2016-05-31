@@ -48,6 +48,8 @@ nnoremap <Leader>P "*P
 set clipboard=unnamedplus
 
 :map <F2> i<CR><ESC>
+":map ±
+:map <C-a> ggVG
 
 execute pathogen#infect()
 

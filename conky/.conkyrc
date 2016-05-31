@@ -32,6 +32,7 @@ uppercase no # set to yes if you want all text to be in uppercase
 TEXT
 ${font Sans:size=18}${color FF9933}SYSTEM ${hr 1}${color}${font}
 
+Distro: $alignr${exec cat /etc/lsb-release |sed '1,3d'|sed 's/DISTRIB_DESCRIPTION="//g'|sed 's/"//g'}
 Kernel: $alignr$kernel
 Uptime: $alignr$uptime
 

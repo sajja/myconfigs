@@ -10,7 +10,6 @@ alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 alias wget='wget -c'
-alias dualmon="xrandr --output VGA2  --right-of eDP1"
 alias "htop_m=htop --sort-key=PERCENT_CPU"
 alias "htop_c=htop --sort-key=PERCENT_MEM"
 alias "initdhclient=sudo pkill -HUP dhclient;sudo dhclient"
@@ -34,5 +33,4 @@ alias vpnrest="cp -r /home/sajith/.fctsslvpnhistory_pagero /home/sajith/.fctsslv
 alias hib="systemctl hibernate"
 alias mm="mailx -c sajith.silva@pagero.com -E "
 alias rd="rdesktop -0 -D -g 1920x1080"
-alias pd="docker ps|grep payso|grep -P -o '\d+->7000'|cut -d - -f1"
 alias t="/home/sajith/Dropbox/todo.txt_cli-2.10/todo.sh"

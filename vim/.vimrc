@@ -50,6 +50,6 @@ set clipboard=unnamedplus
 :map <F2> i<CR><ESC>
 ":map ±
 :map <C-a> ggVG
-
+let g:netrw_browse_split = 2
 execute pathogen#infect()
 

@@ -1,6 +1,6 @@
 # .bashrc
 
-# Source global definitions
+# ource global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
@@ -29,10 +29,12 @@ export TEXTTEST_INSTALL_DIR=/home/sajith/apps/TextTest-3.27.1
 export TEXTTEST_HOME=/home/sajith/texttest/
 export TEXTTEST_PERSONAL_CONFIG=~/.texttest
 export SOURCE_ROOT=~/work
-export GOROOT=/usr/lib/golang/bin/linux_amd64/
-export PATH=$PATH:$GOROOT/bin
+export GOROOT=/home/sajith/tools/go
+export PATH=$GOROOT/bin:$PATH
 export GOPATH=$HOME/scratch
-export PATH=/home/sajith/Dropbox/todo.txt_cli-2.10:/home/sajith/tools/sbt/bin:$JAVA_HOME/bin:$M2_HOME/bin:$TEXTTEST_INSTALL_DIR/bin:/home/sajith/apps/scala-2.10.4/bin/:/home/sajith/.local/bin:/home/sajith/tools/scala-2.11.6/bin:$PATH
+export PATH=/home/sajith/Dropbox/todo.txt_cli-2.10:/home/sajith/tools/sbt/bin:$JAVA_HOME/bin:$M2_HOME/bin:$TEXTTEST_INSTALL_DIR/bin:/home/sajith/apps/scala-2.10.4/bin/:/home/sajith/.local/bin:/home/sajith/tools/scala-2.12.2/bin:$PATH
+
+export SPARK_HOME=/home/sajith/tools/spark-2.1.1-bin-hadoop2.7
 
 source /home/sajith/scratch/oh-my-git/prompt.sh
 source /home/sajith/scratch/myconfigs/bashscripts/wo_autocomplete

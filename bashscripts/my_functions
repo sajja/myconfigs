@@ -33,6 +33,19 @@ function usbkeyboard() {
 
 }
 
+function hdmi() {
+    xrandr --output HDMI1 --left-of eDP1
+    xrandr --output eDP1 --off
+}
+
+
+function laptop() {
+    xrandr --output eDP1 --auto
+    xrandr --output HDMI1 --off
+}
+
+
+
 function panelreset() {
     xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s eDP1
 }
@@ -42,7 +55,7 @@ function panelhdmi() {
 }
 
 function panelvga() {
-    xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s VGA1
+    xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s VGA2
 }
 
 

@@ -22,7 +22,7 @@ alias "cless=less -R"
 alias "grepnote=/home/sajith/scratch/myconfigs/bashscripts/grepnote"
 alias "xf= xmllint --format -"
 alias "startpg=sudo docker run  -p 5432:5432  -d  dockerrepo.pagero.local/paysoldb:3.45-2014-11-28"
-alias "pp=echo ex0217 / 4W02d2vcq93E!"
+alias "pp=echo ex0217 / 4W02d2vcq93E! echo normal:f2r4PAWs admin: yvRMkpYb"
 alias gn="gnote --note-path=/home/sajith/Dropbox/Documents/gnote"
 alias grep='grep --color=auto'
 alias ls="ls --color=auto"

@@ -47,6 +47,12 @@ nnoremap <Leader>P "*P
 
 set clipboard=unnamedplus
 
+
+nmap 7 :res +2<CR> " increase pane by 2 
+nmap 4 :res -2<CR> " decrease pane by 2
+nmap 9 :vertical res -2<CR> " vertical increase pane by 2
+nmap 6 :vertical res +2<CR> " vertical decrease pane by 2
+
 :map <F2> i<CR><ESC>
 ":map ±
 :map <C-a> ggVG

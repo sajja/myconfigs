@@ -32,7 +32,7 @@ export SOURCE_ROOT=~/work
 export GOROOT=/home/sajith/tools/go
 export PATH=$GOROOT/bin:$PATH
 export GOPATH=$HOME/scratch
-export PATH=/home/sajith/Dropbox/todo.txt_cli-2.10:/home/sajith/tools/sbt/bin:$JAVA_HOME/bin:$M2_HOME/bin:$TEXTTEST_INSTALL_DIR/bin:/home/sajith/apps/scala-2.10.4/bin/:/home/sajith/.local/bin:/home/sajith/tools/scala-2.12.2/bin:$PATH
+export PATH=/home/sajith/Dropbox/todo.txt_cli-2.10:$JAVA_HOME/bin:$M2_HOME/bin:$TEXTTEST_INSTALL_DIR/bin:/home/sajith/tools/sbt/latest/bin:$PATH
 
 export SPARK_HOME=/home/sajith/tools/spark-2.1.1-bin-hadoop2.7
 

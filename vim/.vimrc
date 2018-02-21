@@ -57,5 +57,6 @@ nmap 6 :vertical res +2<CR> " vertical decrease pane by 2
 ":map ±
 :map <C-a> ggVG
 let g:netrw_browse_split = 2
+let g:netrw_banner = 0
 execute pathogen#infect()
 

@@ -60,5 +60,9 @@ complete -F mm_options mm
 #Disable CAPS
 #/usr/bin/setxkbmap -option 'ctrl:nocaps'
 
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
+
 complete -cf sudo
 #unset PROMPT_COMMAND

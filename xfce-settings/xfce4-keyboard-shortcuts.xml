@@ -172,7 +172,7 @@
       <property name="&lt;Control&gt;F2" type="string" value="workspace_2_key"/>
       <property name="&lt;Control&gt;F1" type="string" value="workspace_1_key"/>
 <!--      <property name="&lt;Control&gt;F11" type="string" value="workspace_11_key"/> -->
-      <property name="&lt;Super&gt;F11" type="string" value="launch_app_finder"/>
+<!--      <property name="&lt;Super&gt;F11" type="string" value="launch_app_finder"/>-->
       <property name="override" type="bool" value="true"/>
     </property>
   </property>

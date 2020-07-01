@@ -4,7 +4,7 @@ echo "Press [CTRL+C] to stop.."
 while :
 do
 	t=`date|awk '{print $4}'|cut -d ":" -f3`
- 	lscpu |grep "CPU MHz"|awk -v time="$t" '{print time " " $3  }'
+ 	lscpu |grep "CPU MHz"|awk -v time="$t" '{print time " "  $3  }'
 	sleep 1
 done
 

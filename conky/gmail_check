@@ -1,7 +1,0 @@
-#!/bin/bash
-newMail=`/usr/bin/curl -su  sajith.silva@pagero.com:sajith@pagero https://mail.google.com/mail/feed/atom |grep -o '<fullcount>[0-9]*</fullcount>'|cut -d ">" -f2 |cut -d "<" -f1`
-if [ $newMail == 0 ];then
-    echo "\${image \$HOME/scratch/myconfigs/conky/no-new-mail.png -p 580,-7 -s 50x50}"
-else
-    echo "\${image \$HOME/scratch/myconfigs/conky/new-mail.png -p 580,-7 -s 50x50}" 
-fi

@@ -1,5 +1,0 @@
-65,66c65
-< #addr=`ifconfig $ifn |grep "inet"|awk ' {print $2 }'| awk -F : '{ print $2}'`
-< addr=`ifconfig $ifn |grep "inet"|awk ' {print $2 }'`
----
-> addr=`ifconfig $ifn |grep "inet"|awk ' {print $2 }'| awk -F : '{ print $2}'`

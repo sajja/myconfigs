@@ -34,29 +34,16 @@ function usbkeyboard() {
 }
 
 function hdmi() {
-    xrandr --output HDMI1 --auto
-    xrandr --output eDP1 --off
+    xrandr --output HDMI-1 --auto
+    xrandr --output eDP-1 --off
 }
 
 
 function laptop() {
-    xrandr --output eDP1 --auto
-    xrandr --output HDMI1 --off
+    xrandr --output eDP-1 --auto
+    xrandr --output HDMI-1 --off
 }
 
-
-
-function panelreset() {
-    xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s eDP1
-}
-
-function panelhdmi() {
-    xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s HDMI1
-}
-
-function panelvga() {
-    xfconf-query -c xfce4-panel -p /panels/panel-0/output-name -s VGA2
-}
 
 
 function wo {
@@ -102,16 +89,21 @@ done
 }
 
 
-function java7() {
-    echo "Setting java to java7 JAVA_HOME=/home/sajith/apps/jdk1.7.0_25/"
-    export JAVA_HOME=/home/sajith/apps/jdk1.7.0_67
+function java8() {
+    echo "Setting java to java8"
+    export JAVA_HOME=~/tools/jdk8u345-b01
     export PATH=$JAVA_HOME/bin:$PATH
     java -version
 }
-
-function java8() {
-    echo "Setting java to java8 /home/sajith/apps/java8"
-    export JAVA_HOME=/home/sajith/apps/jdk1.8.0_25
+function java11() {
+    echo "Setting java to java11"
+    export JAVA_HOME=~/tools/jdk-11
+    export PATH=$JAVA_HOME/bin:$PATH
+    java -version
+}
+function java18() {
+    echo "Setting java to java18"
+    export JAVA_HOME=~/tools/jdk-18.0.2+9
     export PATH=$JAVA_HOME/bin:$PATH
     java -version
 }

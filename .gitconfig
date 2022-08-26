@@ -9,7 +9,7 @@
     f = fetch
     hu = reset --hard
     u = reset --soft
-    addm = "!git st|grep modified|cut -d ' '  -f 4|xargs git add"
+    addm = "!git status|grep modified|cut -d ' '  -f 4|xargs git add"
     cp = cherry-pick
     sa = stash apply
     sl = stash list
@@ -23,3 +23,6 @@
 	templatedir = ~/.git_template.donotdelete
 [core]
 	editor = vim
+[url "ssh://git@github.com/"]
+[credential]
+	helper = store

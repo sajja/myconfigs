@@ -9,3 +9,6 @@ wo_options()
       COMPREPLY=( $(compgen -W '`ls -d /home/sajith/work/$curr_arg*/ 2>/dev/null | cut -d '/' -f5`' -- $curr_arg ) );
   fi 
 }
+
+
+complete -F wo_options wo

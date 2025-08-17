@@ -95,6 +95,14 @@ function java8() {
     export PATH=$JAVA_HOME/bin:$PATH
     java -version
 }
+
+function javaGraal() {
+    echo "Setting java to Grallvm"
+    export JAVA_HOME=/home/sajith/tools/graalvm-ce-java11-22.2.0
+    export PATH=$JAVA_HOME/bin:$PATH
+    java -version
+}
+
 function java11() {
     echo "Setting java to java11"
     export JAVA_HOME=~/tools/jdk-11
